@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #242424;
+}
+
+h1, span{
+    color: #fff;
+}
+
+.detalhe img{
+    height: 240px;
+    object-fit: cover;
+    width: 100%;
+}
+
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 32px auto;
+    width: 80%;
+}
