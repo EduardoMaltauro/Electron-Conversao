@@ -23,6 +23,20 @@
         <button onclick="calcular()">Calcular</button>
     </div>
 
+    <div class="formulario">
+        <h1>Transformar °C - °F</h1>
+        <span name="transformando"> </span>
+        <input type="number" name="temperatura" placeholder="Temperatura">
+        <button onclick="transformarC()">Transformar para C°</button>
+        <button onclick="transformarF()">Transformar para °F</button>
+    </div>
+
+    <div class="formulario">
+        <h1>Conversão CM - IN</h1>
+        <input type="number" name="centimetro" placeholder="cm">
+        <input type="number" name="polegada" placeholder="in">
+    </div>
+
     <script>
         const entradaAltura = document.querySelector("[name=altura]");
         const entradaPeso = document.querySelector("[name=peso]");
@@ -37,6 +51,43 @@
                 saidaCalculo.innerHTML = resultado;
             }
         }
+    </script>
+
+    <script>
+        const saidaTemperatura = document.querySelector("[name=transformando]")
+        const entradaTemperatura = document.querySelector("[name=temperatura]")
+
+        function transformarF(){
+            const valorTemperatura = parseFloat(entradaTemperatura.value)
+            if(valorTemperatura){
+                const resultado = (valorTemperatura * (9 / 5)) + 32
+                saidaTemperatura.innerHTML = resultado + " °F"
+            }
+        }
+
+        function transformarC(){
+            const valorTemperatura = parseFloat(entradaTemperatura.value)
+            if(valorTemperatura){
+                const resultado = (valorTemperatura - 32) * (5 / 9)
+                saidaTemperatura.innerHTML = resultado + " °C"
+            }
+        }
+    </script>
+
+    <script>
+        const entradaCM = document.querySelector("[name=centimetro]")
+        const entradaIN = document.querySelector("[name=polegada]")
+
+
+        entradaCM.addEventListener("input", function(evento){
+            const valorCM = parseFloat(evento.target.value)
+            entradaIN.value = valorCM / 2.54
+        })
+
+        entradaIN.addEventListener("input", function(evento){
+            const valorIN = parseFloat(evento.target.value)
+            entradaCM.value = valorIN * 2.54 
+        })
     </script>
 </body>
 
